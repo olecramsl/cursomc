@@ -33,12 +33,7 @@ public class ClienteService {
 		Cliente newObj = find(obj.getId());
 		updateData(newObj, obj);
 		return repo.save(newObj);
-	}
-
-	private void updateData(Cliente newObj, Cliente obj) {		
-		newObj.setNome(obj.getNome());
-		newObj.setEmail(obj.getEmail());
-	}
+	}	
 
 	public void delete(Integer id) {
 		find(id);
@@ -60,5 +55,10 @@ public class ClienteService {
 	
 	public Cliente fromDTO(ClienteDTO objDTO) {
 		return new Cliente(objDTO.getId(), objDTO.getNome(), objDTO.getEmail(), null, null);
+	}
+	
+	private void updateData(Cliente newObj, Cliente obj) {		
+		newObj.setNome(obj.getNome());
+		newObj.setEmail(obj.getEmail());
 	}
 }
